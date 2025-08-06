@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+Деталі статті {{ article.title }}
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    {% if article %}
+        <h1>Перегляд деталей статті {{ article.title }}</h1>
+        <div class="alert alert-info">
+            <p><b>Текст:</b> {{ article.text }}</p>
+            <p><b>Дата: {{ article.date.strftime('%Y-%m-%d') }}</b></p>
+            <a href = "/posts/{{ article.id }}/del" class="btn btn-danger">Видалити</a>
+            <a href = "/posts/{{ article.id }}/update" class="btn btn-success">Оновити дані</a>
+        </div>
+    {% else %}
+        <p class="alert alert-info">Немає статті для відображення.</p>
+    {% endif %}
+</div>
+{% endblock %}

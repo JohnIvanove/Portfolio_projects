@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+Всі статті
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Перегляд статей</h1>
+    {% if articles|length > 0 %}
+        <ul class="list-group">
+            {% for article in articles %}
+            <li class="alert alert-info">
+                <h2>{{ article.title }}</h2>
+                <p><strong>Вступ:</strong> {{ article.intro }}</p>
+                <p><strong>Текст:</strong> {{ article.text }}</p>
+                <p><em>Дата: {{ article.date.strftime('%Y-%m-%d') }}</em></p>
+                <a href="/posts/{{ article.id }}" class="btn btn-warning">Детальніше</a>
+            </li>
+            {% else %}
+            <li class="alert alert-info">Немає статей для відображення.</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+    <p>В нас ше не має статей.</p>
+    {% endif %}
+</div>
+{% endblock %}

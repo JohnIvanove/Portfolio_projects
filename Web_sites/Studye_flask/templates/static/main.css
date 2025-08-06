@@ -1,0 +1,17 @@
+body {
+    background-color: #f8f9fa; /* Світлий фон для всього тіла сторінки */
+}
+
+.list-group-item.alert-info {
+    background-color: #d1ecf1; /* Світло-блакитний фон для статей */
+}
+
+.btn-warning {
+    background-color: #ffc107; /* Жовтий фон для кнопок */
+    border-color: #ffc107;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800; /* Жовтий фон для кнопок при наведенні */
+    border-color: #d39e00;
+}

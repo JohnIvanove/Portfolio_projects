@@ -1,5 +1,6 @@
 # -In this project made site for personal studye English.
 
+> [!NOTE]
 > [----------Functional----------].
 > 
 > Registration and authorization (only with email without OAUTH 2.0);

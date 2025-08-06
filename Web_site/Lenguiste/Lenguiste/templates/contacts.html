@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/static/favicon_io/site.webmanifest">
+
+    <title>Lenguist - Contacts</title>
+
+    {% if theme == "light" %}
+    <link rel="stylesheet" href="/static/css/light-theme.css">
+    {% else %}
+    <link rel="stylesheet" href="/static/css/dark-theme.css">
+    {% endif %}
+
+</head>
+<style>
+    body {
+        font-family: "{{ font }}";
+    }
+    .sexy_look {
+        display: block;
+    }
+    .header {
+        width: 100%;
+        margin-left: 0px !important;
+    }
+    .textos {
+        margin-left: 10px;
+    }
+    @media (max-width: 1000px) {
+        .burger {
+            margin-right: -10px;
+        }
+        .drop:hover .baton {
+            right: 11px !important;
+        }
+
+    }
+    @media (max-width: 800px) {
+        .burger {
+            margin-right: 10px;
+        }
+    }
+</style>
+<body>
+    <header>
+        <nav>
+            <div class="d-flex justify-content-between align-items-center px-md-2 mb-3 header border-bottom shadow-sm">
+                <h5 class="my-0 font-weight-normal textos">Lenguist - ENG.</h5>
+                <nav class="my-2 my-md-0 d-flex flex-row ml-auto">
+                    <div class="drop">
+                        <button type="button" class="btn btn-secondary burger" onclick="toggleMenu()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"></path>
+                            </svg>
+                        </button>
+                        <div class="baton">
+                            <a class="p-2 text-dark" href="/home">Home</a>
+                            <a class="p-2 text-dark" href="/decks">Decks</a>
+                            <a class="p-2 text-dark" href="/learning">Learning</a>
+                            <a class="btn btn-warning creates" href="/deck">Create</a>
+                            {% if user.is_authenticated %}
+                                <a class="btn btn-primary" href="/account" onclick="openInNewWindow(this.href); return false;">{{ user.username }}</a>
+                            {% else %}
+                                <a class="btn btn-primary" href="/singing" onclick="openInNewWindow(this.href); return false;">Sign In</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="main-content2 sexy_look">
+            <h2 class="text-right"><i>- Contact Us</i></h2> <!-- •— -->
+            <h1 class="text-center">• Experience</h1> <!-- •— -->
+            <div class="card">
+                <div class="card-header beckground1">
+                    Our User Experience
+                </div>
+                <div class="card-body beckground2">
+                    <blockquote class="blockquote mb-0">
+                        <p>We'd love to hear from you! Whether you have questions, feedback, or need assistance, please fill out the form below and one of our team members will get back to you as soon as possible.</p>
+                    <footer class="blockquote-footer">From <cite title="Source Title">Administrator</cite></footer>
+                    </blockquote>
+                </div>
+            </div>
+            
+            <h1 class="text-center">• Location</h1>
+            <div class="card">
+                <div class="card-header beckground1">
+                    Our Location
+                </div>
+                <div class="card-body beckground2" style="width: 100%; height: 500px;">
+                    <h5 class="card-title">Main office in Canada</h5>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.44456793855!2d-123.3656444!3d48.428421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548f738376c5a3ef%3A0xbbc3d1c9a6e5083b!2sCityville%2C%20Country!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" width="100%" height="85%" style="border:1px;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>            
+            <h1 class="text-center">• Our Working Info</h1>
+            <div class="card text-center">
+                <div class="card-header background1">
+                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" id = "sexy_cr" aria-selected="true">Our contacts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="hours-tab" data-toggle="tab" href="#hours" role="tab" aria-controls="hours" id = "sexy_cr" aria-selected="false">Our working hours</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body tab-content background2" id="myTabContent">
+                    <div class="tab-pane fade show active text-left" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <h5 class="card-title">- How to Reach Us</h5>
+                        <p>Address: 44 Main Street, Washington, USA</p>
+                        <p>Phone: +123 456 7890</p>
+                        <p>Email: nazzych666@gmail.com</p>
+                    </div>
+                    <div class="tab-pane fade text-left" id="hours" role="tabpanel" aria-labelledby="hours-tab">
+                        <h5 class="card-title">- Working Hours</h5>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p>Saturday: 10:00 AM - 4:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+            </div>            
+            <h1 class="text-center">• Your Feedback</h1>
+            <div class="card">
+                <div class="card-header beckground1">
+                    • Card Feedback.
+                </div>
+                <div class="card-body beckground2">
+                    <h5 class="card-title">Please fill out the form below with your details and message. Make sure all required fields are filled in accurately. Once submitted, your message will be reviewed by our support team, and we will respond as quickly as possible. We value your feedback and are here to assist you with any inquiries or concerns you may have.</h5>
+                    <p class="card-text">-----------------------------------------------------------------------------------------------------------------------------------------------------</p>
+                <form action="/function2" method="POST">
+                    <div class="form-group">
+                        <label for="name">— Your Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">— Your Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">— Your Message:</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" placeholder="Enter your message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-info" style="margin-left: 10px; margin-bottom: 25px;">Submit</button>
+                </form>
+            </div>
+            </div>
+            <h1 class="text-center">• Follow Us on Social Media</h1>
+            <div class="card text-center">
+                <div class="card-body beckground2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="currentColor" class="bi bi-twitter-x" viewBox="0 4.5 16 12">
+                        <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                    </svg>
+                    <a href="https://x.com/ThePSF" target="_blank" style="margin-left: 5px; font-size: 15px;">X</a>
+                    <p style="display: inline; margin-left: 40px; color: white; font-size: 20px;">|</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-youtube space" viewBox="0 0 16 16">
+                        <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                    </svg>
+                    <a href="https://www.youtube.com/@softserve_academy" target="_blank" style="margin-left: 5px; font-size: 15px;">YouTube</a>
+                </div>
+            </div>
+        </div>
+    </main>
+        <div class="main-content1" style="padding-top: 10px; margin-top: 25px; border-top: 1px solid #454545;">
+            <footer class="footer-style">
+            <div class="row">
+                <div class="col-12 col-md-2" style="margin-left: 100px;">
+                    <h5>Help to study</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="/logika">Logika school</a></li>
+                        <li><a class="text-muted" href="/tutorial">Tutorial</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-2" style="margin-left: 100px;">
+                    <h5>About us</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="/whoweare">Who we are</a></li>
+                        <li><a class="text-muted" href="whywe">Why we</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-2" style="margin-left: 100px;">
+                    <h5>Contact & Policy</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="/contact">Contact us</a></li>
+                        <li><a class="text-muted" href="/privat_policy">Privat Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

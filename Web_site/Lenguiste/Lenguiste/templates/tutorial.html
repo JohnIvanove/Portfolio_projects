@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/static/favicon_io/site.webmanifest">
+
+    <title>Lenguist - Tutorial</title>
+
+    {% if theme == "light" %}
+    <link rel="stylesheet" href="/static/css/light-theme.css">
+    {% else %}
+    <link rel="stylesheet" href="/static/css/dark-theme.css">
+    {% endif %}
+
+</head>
+<style>
+    body {
+        font-family: "{{ font }}";
+    }
+    .sexy_look {
+        display: block;
+    }
+    .header {
+        width: 100%;
+        margin-left: 0px !important;
+    }
+    .textos {
+        margin-left: 10px;
+    }
+    @media (max-width: 1000px) {
+        .burger {
+            margin-right: -10px;
+        }
+        .drop:hover .baton {
+            right: 24px !important;
+        }
+
+    }
+    @media (max-width: 800px) {
+        .burger {
+            margin-right: 10px;
+        }
+    }
+</style>
+<body>
+    <header>
+        <nav>
+            <div class="d-flex justify-content-between align-items-center px-md-4 mb-3 header border-bottom shadow-sm new_header">
+                <h5 class="my-0 font-weight-normal">Lenguist - ENG.</h5>
+                <nav class="my-2 my-md-0 d-flex flex-row ml-auto">
+                    <div class="drop">
+                        <button type="button" class="btn btn-secondary burger" onclick="toggleMenu()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"></path>
+                            </svg>
+                        </button>
+                        <div class="baton">
+                            <a class="p-2 text-dark" href="/home">Home</a>
+                            <a class="p-2 text-dark" href="/decks">Decks</a>
+                            <a class="p-2 text-dark" href="/learning">Learning</a>
+                            <a class="btn btn-warning creates" href="/deck">Create</a>
+                            {% if user.is_authenticated %}
+                                <a class="btn btn-primary" href="/account" onclick="openInNewWindow(this.href); return false;">{{ user.username }}</a>
+                            {% else %}
+                                <a class="btn btn-primary" href="/singing" onclick="openInNewWindow(this.href); return false;">Sign In</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="main-content2 sexy_look">
+            <div style="margin-bottom: 25px;">
+                <h2 class="text-right"><i>- Tutorial</i></h2> <!-- •— -->
+            </div>
+            <div class="container mt-5">
+                <div class="card">
+                    <div class="card-header beckground1">
+                        Tutorial
+                    </div>
+                    <div class="card-body beckground2">
+                        <blockquote class="blockquote mb-0">
+                            <p><b>This is a step-by-step tutorial</b> to help you navigate and utilize the features of the <i>Lenguist</i> website.</p>
+                            <footer class="blockquote-footer">Lenguist Team in <cite title="Source Title">User Guide</cite></footer>
+                        </blockquote>
+                        <h5 class="mt-4"><u>Step 1: Registration or Login</u></h5>
+                        <p>To start using <b>Lenguist</b>, you need to create an account. Click on the <b>"Sign Up"</b> button and fill in your details. Once registered, log in using your email and password.</p>
+                        <h5 class="mt-4"><u>Step 2: Creating Language Deck</u></h5>
+                        <p>After logging in, go to the <i>"Create Deck"</i> page. Here you can create new language cards by filling in the fields with words and phrases in <u>English</u> and <u>Ukrainian</u>. Choose the card type (<i>quizzes</i>, <i>true/false</i>, <i>input answers</i>) and save your deck.</p>
+                        <h5 class="mt-4"><u>Step 3: Using Your Deck for Learning</u></h5>
+                        <p>Navigate to the <b>"Learning"</b> page to start using your language cards. Select a deck and begin your learning session.</p>
+                        <h5 class="mt-4"><u>Step 4: Managing Your Account</u></h5>
+                        <p>Visit the <b>"Account"</b> page to update your personal information, such as <u>username</u> and <u>email</u>.</p>
+<!-- You can also change your password if needed. -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="main-content1" style="padding-top: 10px; margin-top: 25px; border-top: 1px solid #454545;">
+        <footer class="footer-style">
+        <div class="row">
+            <div class="col-12 col-md-2" style="margin-left: 100px;">
+                <h5>Help to study</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="/logika">Logika school</a></li>
+                    <li><a class="text-muted" href="/tutorial">Tutorial</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-2" style="margin-left: 100px;">
+                <h5>About us</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="/whoweare">Who we are</a></li>
+                    <li><a class="text-muted" href="whywe">Why we</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-2" style="margin-left: 100px;">
+                <h5>Contact & Policy</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="/contact">Contact us</a></li>
+                    <li><a class="text-muted" href="/privat_policy">Privat Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+body {
+    background-color: #212529;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    color: white;
+}
+main {
+    flex: 1;
+    padding-top: 80px;  /* Відступ зверху, щоб уникнути перекриття хедером */
+}
+h5 {
+    color: white;
+}
+p {
+    color: white;
+}
+a {
+    margin-left: 5px;
+    color: white;
+}
+label {
+    color: white !important;
+}
+input {
+    background-color: #454545 !important;
+    color: white !important;
+}
+select {
+    background-color: #454545 !important;
+    color: white !important;
+}
+option {
+    background-color: #454545;
+    color: white;
+}
+textarea {
+    background-color: #454545 !important;
+    color: white !important;
+}
+.text-dark {
+    color: white !important;
+}
+.border-top {
+    border-color: #454545 !important;
+}
+.btn-logout {
+    color: red;
+}
+.btn-logout:hover {
+    background-color: #490000;
+    color: red;
+}
+.btn-hover:hover {
+    background-color: #454545;        
+}
+.logo-hover:hover {
+    text-decoration: underline;
+}
+.space1 {
+    padding-left: 10rem;
+}
+.space2 {
+    padding-left: 15rem;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 180px;  /* Встановлюємо ширину вдвічі меншою */
+    background-color: #212529;  /* Темніший колір 212529 */
+    color: white;
+}
+.border_style {
+    border-style: solid;
+    border-width: 4px;
+    border-color: #212529;
+    background-color: #272b30;
+}
+.main-content1 {
+    margin-left: 200px;  /* Відповідний відступ для хедер/футер контенту */
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+.main-content2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 205px;  /* Відповідний відступ для основного контенту */
+    margin-right: 25px;
+}
+.header {
+    margin-left: -25px;  /* Відповідний відступ для хедер/футер контенту */
+    position: fixed;
+    top: 0;
+    height: 8%;
+    width: 85.75%;
+    z-index: 1000;  /* забезпечує накладання поверх іншого контенту */
+    background-color: rgba(48, 48, 48, 0.5);  /* Білий фон із 75% заблюреним ефектом */
+    backdrop-filter: blur(10px);  /* Заблюрення фону */
+    border-width: 1px;
+}
+.beckground1 {
+    background-color: #272b30;
+}
+.beckground2 {
+    background-color: #2f353a;
+}
+#mydiv {
+    background-color: #2f353a!important;
+}
+.col-md-8, .col-md-4 {
+    background-color: #2f353a!important;
+}
+ 
+.burger {
+    display: none;
+    color: black;
+    background-color: lightblue;
+    padding-bottom: 8px;
+}
+.burger:hover {
+    color: teal;
+    background-color: powderblue;
+}
+.btn-primary {
+    margin-right: 10px;
+}
+.bokova {
+    display: none;
+    top: 0;
+    left: 0;
+    padding-right: 12px;
+    height: 100%;
+    width: 55px;  /* Встановлюємо ширину вдвічі меншою */
+    background-color: #212529;  /* Темніший колір 212529 */
+    color: white;
+    z-index: 1000;
+}
+
+.bokova > ul > li > a {
+    padding: 12px;
+    margin-top: 4px;
+    color: white;
+    width: 100%;
+    display: none; /* Додаємо, щоб посилання займали весь простір елементу */
+    text-align: center; /* Центруємо текст всередині посилання */
+}
+.bokova > ul > li > a:hover {
+    background-color: #454545;
+}
+.logout {
+    color: red !important;
+    padding: 12px;
+    margin-top: 4px;
+    width: 100%;
+    display: none; /* Додаємо, щоб посилання займали весь простір елементу */
+    text-align: center; /* Центруємо текст всередині посилання */
+}
+.logout:hover {
+    background-color: #490000 !important;
+    color: red;
+}
+.card {
+    background-color: #2f353a !important;
+    border-color: #212529  !important;
+    border-radius: 10px;
+}
+.correct-answer {
+    color: green;
+}
+.incorrect-answer {
+    color: red;
+}
+.highlighted-answer {
+    color: royalblue;
+}
+#contact-tab, #hours-tab {
+    background-color: #2f353a !important;
+    color: white !important;
+    border-width: 0.5px;
+    border-color: white;
+    color: black;
+}
+#contact-tab.active, #hours-tab.active {
+    border-width: 2px;
+    border-color: black !important;
+}
+#contact-tab:hover, #hours-tab:hover {
+    border-width: 2px;
+    border-color: blue;
+}
+#card-header {
+    background-color: #404040 !important;
+}
+#card-body {
+    background-color: #404040 !important;
+}
+#learning, #deck{
+    background-color: #404040 !important;
+    color: white;
+}
+#container {
+    border: 1px solid black !important;
+    background-color: #2f353a ;
+    border-radius: 10px;
+}
+#edit {
+    background-color: #404040 !important;
+    color: white;
+    padding-top: 10px;
+    border-radius: 10px;
+}
+#themeSwitch {
+    background-color: darkgreen !important;
+}
+@media (max-width: 1000px) {
+    .btn-primary {
+        margin-right: 0;
+    }
+    .sidebar {
+        display: none;
+    }
+    .bokova {
+        position: fixed;
+    }
+    .bokova > ul > li > a {
+        display: block;
+    }
+    .main-content1 {
+        margin-left: 70px;
+        margin-right: 10px;
+    }
+    .main-content2 {
+        /* margin-left: 205px;  Відповідний відступ для основного контенту */
+        margin-left: 65px;
+        margin-right: 40px;
+    }
+    .header {
+        width: 100%;
+        margin-left: -10px;
+    }
+}
+@media (max-width: 800px) {
+    .sidebar {
+        display: none;
+    }
+    .header {
+        width: 100%;
+        margin-left: -10px;
+    }
+    .baton {
+        display: none;
+    }
+    .drop:hover .baton {
+        text-align: center;
+        background-color: lightblue;
+        width: 105px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        right: 70px;
+        position: absolute;
+        border-radius: 4px; 
+    }
+    .btn-primary {
+        text-align: center;
+        width: 80px;
+        margin: 0 auto;
+        display: block;
+    }
+    .creates {
+        text-align: center;
+        width: 80px;
+        margin: 0 auto;
+        display: block;
+    }
+    .main-content1 {
+        margin-left: 70px;
+        margin-right: 10px;
+    }
+    .main-content2 {
+        margin-left: 65px;
+        margin-right: 10px;
+    }
+    .burger {
+        margin-right: 50px;
+        display: block;
+    }
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>NezerHill</title>
+    <!-- Вставте обидва формати іконки -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!--<link rel="icon" href="images/favicon.png" type="image/png"> -->
+    <style>
+        .btn-logout {
+            color: red;
+        }
+        .btn-logout:hover {
+            background-color: #490000;
+            color: red;
+        }
+        .text-white:hover {
+            background-color: #454545;        
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 200px;  /* Встановлюємо ширину вдвічі меншою */
+            padding: 20px;
+            background-color: #212529;  /* Темніший колір 212529 */
+            color: white;
+        }
+        .main-content {
+            margin-left: 200px;  /* Відповідний відступ для основного контенту */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            <span class="fs-5">Nezer Hill</span>  <!-- Змінили розмір тексту через меншу ширину -->
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="/home" class="nav-link {% if request.path == '/home' %}active{% endif %}" aria-current="page">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg> Home
+                </a>
+            </li>
+            <li>
+                <a href="/learning" class="nav-link text-white {% if request.path == '/learning' %}active{% endif %}">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#Learning"></use></svg> Learning
+                </a>
+            </li>
+            <li>
+                <a href="/decks" class="nav-link text-white {% if request.path == '/decks' %}active{% endif %}">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#Decks"></use></svg> Decks
+                </a>
+            </li>
+            <li>
+                <a href="/contact" class="nav-link text-white {% if request.path == '/contact' %}active{% endif %}">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg> Contact us
+                </a>
+            </li>
+        </ul>        
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li>
+                <a href="#" class="nav-link text-white">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg> Privat Policy
+                </a>
+            </li>
+            <li>
+                <a href="/logout" class="nav-link logout-link btn-logout">
+                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/logout"></use></svg> Logout
+                </a>
+            </li>
+        </ul>
+        <!-- Закритий div для класу .dropdown -->
+    </div>
+
+    <div class="main-content">
+        <div class="drop">
+            <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+                <h5 class="my-0 mr-md-auto font-weight-normal">Nezer Hill - ENG.</h5>
+                <nav class="my-2 my-md-0 mr-md-3">
+                    <a class="p-2 text-dark" href="/home">Home</a>
+                    <a class="p-2 text-dark" href="/#">Decks</a>
+                    <a class="p-2 text-dark" href="/#">Learning</a>
+                    <a class="btn btn-warning" href="/deck">Create</a>
+                </nav>
+    
+                {% if user.is_authenticated %}
+                    <a class="btn btn-outline-primary" href="/account" onclick="openInNewWindow(this.href); return false;">{{ user.username }}</a>
+                {% else %}
+                    <a class="btn btn-outline-primary" href="/singing" onclick="openInNewWindow(this.href); return false;">Sign In</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div id="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="alert alert-warning" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+        </div>
+        
+        {% block body %}
+        <!-- Main content of the page goes here -->
+        {% endblock %}
+        
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <div class="row">
+                <div class="col-6 col-md">
+                    <h5>Help to study</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Logika school</a></li>
+                        <li><a class="text-muted" href="#">Tutorial</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>About us</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Who we are</a></li>
+                        <li><a class="text-muted" href="#">Why we</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            document.querySelector('.navbar').classList.toggle('dark-theme');
+            document.querySelector('.footer').classList.toggle('dark-theme');
+            document.querySelectorAll('.card').forEach(card => card.classList.toggle('dark-theme'));
+        }
+
+        // Додаємо таймер для зникнення flash повідомлень
+        setTimeout(function() {
+            var flashMessages = document.getElementById('flash-messages');
+            if (flashMessages) {
+                flashMessages.style.display = 'none';
+            }
+        }, 5000);  // Таймер на 5 секунд (5000 мілісекунд)
+    </script>
+</body>
+</html>

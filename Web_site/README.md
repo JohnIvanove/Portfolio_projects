@@ -12,7 +12,7 @@
 > 
 > Many pages about site ("How to use" "About" "Privat & Policy" and more).
 
-> [!NOTE]
+> [!TIP]
 > [----------Tehnologies which using in this project----------].
 > 
 > `Flask` | `flask_sqlalchemy` | `flask_login` | `Flask_mail` | `email` | `sendgrid` | `sqlite3` | `smtplib`.

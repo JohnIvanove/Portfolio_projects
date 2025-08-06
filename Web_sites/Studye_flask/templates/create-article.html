@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+Створення статті
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Добавлення статті</h1>
+    <form method="post">
+        <div class="form-group">
+            <label for="title">Заголовок</label>
+            <input type="title" name="title" id="title" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="intro">Вступ</label>
+            <textarea name="intro" id="intro" class="form-control" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="text">Текст</label>
+            <textarea name="text" id="text" class="form-control" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Відправити</button>
+    </form>
+</div>
+{% endblock %}

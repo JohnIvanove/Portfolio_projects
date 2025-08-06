@@ -1,13 +1,19 @@
-# In this project made site for personal studye English.
+# -In this project made site for personal studye English.
 
->[----------Functional----------].
->Registration and authorization (only with email without OAUTH 2.0);
->Full CRUD of decks and cards;
->CRUD of profile data;
->Personalise of themes, fonts on site;
->Many pages about site ("How to use" "About" "Privat & Policy" and more).
+> [----------Functional----------].
+> 
+> Registration and authorization (only with email without OAUTH 2.0);
+> 
+> Full CRUD of decks and cards;
+> 
+> CRUD of profile data;
+> 
+> Personalise of themes, fonts on site;
+> 
+> Many pages about site ("How to use" "About" "Privat & Policy" and more).
 
 > [!NOTE]
-> [----------Tehnologies which ysing in this project----------].
-> Flask FlaskSqlalchemy Flask_login Flask_mail email sendgrid sqlite3 smtplib.
+> [----------Tehnologies which using in this project----------].
+> 
+> `Flask` | `flask_sqlalchemy` | `flask_login` | `Flask_mail` | `email` | `sendgrid` | `sqlite3` | `smtplib`.
 
